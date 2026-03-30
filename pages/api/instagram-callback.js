@@ -14,7 +14,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const redirectUri = 'http://localhost:3000/api/instagram-callback'
+    const redirectUri = 'https://content-dashboard-snowy.vercel.app/api/instagram-callback'
 
     // Exchange code for short-lived token
     const tokenRes = await axios.post('https://graph.facebook.com/v19.0/oauth/access_token', null, {
