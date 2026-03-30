@@ -9,5 +9,6 @@ export default function handler(req, res) {
     '&scope=' + scope +
     '&response_type=code'
 
-  return res.redirect(302, authUrl)
+  res.setHeader('Location', authUrl)
+  res.status(302).end()
 }
