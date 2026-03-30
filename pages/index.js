@@ -113,7 +113,11 @@ export default function Dashboard() {
         <div style={styles.headerRight}>
           {syncMsg && <span style={styles.syncMsg}>{syncMsg}</span>}
           {!instagramConnected && (
-            <a href="/api/instagram-auth" style={styles.igBtn}>Instagram verbinden</a>
+            <button style={styles.igBtn} onClick={async () => {
+              const res = await fetch('/api/instagram-auth')
+              const { url } = await res.json()
+              window.location.href = url
+            }}>Instagram verbinden</button>
           )}
           <button style={styles.syncBtn} onClick={handleSync} disabled={syncing}>
             {syncing ? 'Sync läuft...' : 'Daten aktualisieren'}
